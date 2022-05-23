@@ -5,6 +5,8 @@ import {
     logout 
 } from '../fetch-utils.js';
 
+import { renderOption } from '../render-utils.js';
+
 const form = document.querySelector('.bunny-form');
 const logoutButton = document.getElementById('logout');
 
@@ -24,9 +26,11 @@ window.addEventListener('load', async () => {
     // grab the select HTML element from the DOM
     const familySelect = document.getElementById('family-id');
     // go get the families from supabase
-    await getFamilies(); // Work Out This Function?
+    await getFamilies();
     // for each family
-
+    for (let family of familySelect) {
+        const renderFamily = renderOption(family);
+    }
     // create an option tag
 
     // set the option's value and text content
