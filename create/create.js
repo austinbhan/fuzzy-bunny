@@ -5,8 +5,6 @@ import {
     logout 
 } from '../fetch-utils.js';
 
-import { renderOption } from '../render-utils.js';
-
 const form = document.querySelector('.bunny-form');
 const logoutButton = document.getElementById('logout');
 
@@ -29,13 +27,14 @@ window.addEventListener('load', async () => {
     await getFamilies();
     // for each family
     for (let family of familySelect) {
-        const renderFamily = renderOption(family);
-    }
     // create an option tag
-
+        const option = document.createElement('option');
     // set the option's value and text content
-
+        option.value = family.id;
+        option.textContent = family.name;
     // and append the option to the select
+        familySelect.append(option);
+    }
 });
 
 
