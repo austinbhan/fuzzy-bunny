@@ -8,13 +8,14 @@ import {
 const form = document.querySelector('.bunny-form');
 const logoutButton = document.getElementById('logout');
 
-form.addEventListener('submit', async e => {
+form.addEventListener('submit', async (e) => {
     // prevent default
-
+    e.preventDefault();
     // get the name and family id from the form
-
+    const bunnyForm = new FormData('form');
+    console.log(bunnyForm.get('bunny-name'));
     // use createBunny to create a bunny with this name and family id
-    
+    await createBunny({ name: bunnyForm.get('bunny-name'), family_id: bunnyForm.get('family-id') });
     form.reset();
 });
 
