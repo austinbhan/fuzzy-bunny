@@ -10,8 +10,12 @@ export function getUser() {
 
 export async function getFamilies() {
     // fetch all families and their bunnies
-
-    return checkError(response);
+    const response = await client.from('loving_families').select('*, bunnies(*)');
+    if (response.error) {
+        console.log(response.error.message);
+    } else {
+        return response.data;
+    }
 }
 
 export async function deleteBunny(id) {

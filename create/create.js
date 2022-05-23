@@ -19,12 +19,12 @@ form.addEventListener('submit', async (e) => {
     form.reset();
 });
 
-window.addEventListener('load', async() => {
+window.addEventListener('load', async () => {
     // let's dynamically fill in the families dropdown from supabase
     // grab the select HTML element from the DOM
-
+    const familySelect = document.getElementById('family-id');
     // go get the families from supabase
-
+    await getFamilies(); // Work Out This Function?
     // for each family
 
     // create an option tag
