@@ -34,7 +34,6 @@ async function displayFamilies() {
         for (let bunny of family.fuzzy_bunnies) {
             const bunnyDiv = document.createElement('li');
             bunnyDiv.textContent = bunny.name;
-            bunnyDiv.setAttribute('id', `${bunny.name}`);
 
             bunnyDiv.addEventListener('click', async () => {
                 await deleteBunny(bunny.id);
